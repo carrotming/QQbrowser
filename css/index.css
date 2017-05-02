@@ -1,0 +1,640 @@
+@charset "UTF-8";
+html,body,section{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+section{
+    overflow: hidden;
+    position: relative;
+}
+
+section.p1,section.p2{
+    transition: all 1s linear;
+}
+/*************进场动画**************/
+.p1.current,.p2.current{
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(5) scaleY(5) scaleZ(5);
+}
+/****************第一页内容*****************/
+section.p1{
+    background: url(../images/page1_glow.png) no-repeat center 100px, linear-gradient(0deg, #395ecb 0%, #3657be 35%, #242161 75%, #1a0531 100%);
+}
+section.p1 .content1,section.p1 .content1 ul{
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -350px;
+    margin-top: -250px;
+}
+/*********************Ul旋转**********************/
+section.p1 .content1 ul{
+    transform-style: preserve-3d;
+    animation: p1move 15s infinite alternate;
+}
+@keyframes p1move{
+  0%{
+      transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+  }100%{
+         transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(360deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+     }
+}
+section.p1 .content1 ul>li{
+    width: 580px;
+    height: 361px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -290px;
+    margin-top: -180px;
+    /*背向屏幕的元素不可见*/
+    backface-visibility: hidden;
+}
+/************具体每一个li**************/
+section.p1 .content1 ul>li:nth-child(1){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+section.p1 .content1 ul>li:nth-child(2){
+    transform: translateX(0px) translateY(0px) translateZ(70px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+section.p1 .content1 ul>li:nth-child(3){
+    transform: translateX(0px) translateY(0px) translateZ(-70px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+section.p1 .content1 ul>li:nth-child(4){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+section.p1 .content1 ul>li:nth-child(5){
+    transform: translateX(0px) translateY(0px) translateZ(70px) rotateX(0deg) rotateY(180deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+/*****************圆环***************/
+.circle{
+    width: 680px;
+    height: 680px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -340px;
+    margin-top: -340px;
+    animation: circleMove 2s infinite  linear;
+    transition: all 0.5s linear;
+}
+
+@keyframes circleMove {
+   0%{
+       transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(-80deg) rotateY(-10deg) rotateZ(0deg) scaleX(2) scaleY(2) scaleZ(2);
+   }100%{
+           transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(-80deg) rotateY(-10deg) rotateZ(360deg) scaleX(2) scaleY(2) scaleZ(2);
+   }
+}
+
+
+/********************第二页内容******************/
+section.p2{
+    perspective:1200px;
+    background: linear-gradient(0deg, #41b93e 0%, #3b9e3c 35%, #274535 75%, #190530 100%);
+}
+section.p2 .bg span{
+    width: 2500px;
+    height: 1px;
+    background: greenyellow;
+    position: absolute;
+    top: 50%;
+    transform: rotateY(-183deg);
+}
+section.p2 .bg img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+section.p2 .bg img:nth-of-type(1){
+    width: 684px;
+    height: 395px;
+    margin-left:188px;
+    margin-top: -197px;
+}
+section.p2 .bg img:nth-of-type(2){
+    width: 346px;
+    height: 123px;
+    margin-left:260px;
+    margin-top: -62px;
+}
+section.p2 ul{
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -300px;
+    margin-top: -300px;
+}
+section.p2 ul>li{
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -175px;
+    margin-left: -175px;
+}
+
+section.p2 ul>li:nth-of-type(1){
+   animation: p2Move 0.5s infinite linear;
+    left: 90%;
+}
+section.p2 ul>li:nth-of-type(2){
+    animation: p2Move 1s infinite linear;
+    left: 75%;
+}
+section.p2 ul>li:nth-of-type(3){
+    animation: p2Move 1.5s infinite linear;
+    left: 60%;
+}
+section.p2 ul>li:nth-of-type(4){
+    animation: p2Move 2s infinite linear;
+    left: 45%;
+}
+@keyframes p2Move {
+    0%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    }100%{
+         transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(360deg) scaleX(1) scaleY(1) scaleZ(1);
+     }
+}
+.p2 .text{
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    top: 45%;
+    left: 28%;
+}
+.p2 .text p{
+    font-size: 20px;
+    color: white;
+}
+/***********************第三页*******************/
+section.p3{
+    perspective:1200px;
+    background: linear-gradient(0deg, #395ecb 0%, #3657be 35%, #242161 75%, #1a0531 100%);
+}
+.p3 .p3-bg img{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.p3-bg img:nth-of-type(1){
+    width: 1368px;
+    height: 1111px;
+    margin-left: -684px;
+    margin-top: -555px;
+}
+.p3-bg img:nth-of-type(2){
+    width: 131px;
+    height: 130px;
+    margin-left: -65px;
+    margin-top: -65px;
+}
+.p3 .p3-title{
+    width: 450px;
+    height: 149px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: 165px;
+    margin-top: -175px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(-45deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    transition: all 1s linear;
+}
+.p3.current .p3-title{
+    transform: translateX(1000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p3content ul{
+    width: 680px;
+    height: 680px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -340px;
+    margin-top: -340px;
+    transform-style:preserve-3d;
+    animation: oUlMove 10s infinite alternate;
+}
+.p3 .p3content{
+    width: 680px;
+    height: 680px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -340px;
+    margin-top: -340px;
+    transition: all 1s linear;
+}
+.p3.current .p3content{
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(5) scaleY(5) scaleZ(5);
+}
+@keyframes oUlMove {
+    0%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+    100%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(75deg) rotateY(180deg) rotateZ(360deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+}
+.p3content ul li{
+    width: 680px;
+    height: 680px;
+    border: 1px solid skyblue;
+    border-radius: 50%;
+    position: absolute;
+    transform-style:preserve-3d;
+}
+.p3content ul li:nth-of-type(1){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(-60deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p3content ul li:nth-of-type(2){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p3content ul li:nth-of-type(3){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(60deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p3content ul li img:nth-of-type(1){
+    animation: imgMove 1s infinite linear;
+}
+.p3content ul li img:nth-of-type(1){
+    animation: imgMove 2s infinite linear;
+}
+.p3content ul li img:nth-of-type(1){
+    animation: imgMove 3s infinite linear;
+}
+@keyframes imgMove {
+  0%{
+      transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+  }
+    100%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(360deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+}
+
+/***********************第四页内容**************************/
+section.p4{
+    background: url(../images/page4_glow.png) no-repeat center 200px, linear-gradient(0deg, #ff9f42 0%, #ed923d 35%, #6d3816 75%, #2e0b04 100%);
+}
+.p4 .p4content,.p4 .p4content ul{
+    width: 414px;
+    height: 414px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -207px;
+    margin-top: -207px;
+    transform-style: preserve-3d;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(70deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4 .p4content ul li{
+    width: 414px;
+    height: 414px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -207px;
+    margin-top: -207px;
+}
+.p4 .p4content ul li:nth-child(1){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4 .p4content ul li:nth-child(2){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4 .p4content ul li:nth-child(3){
+    transform: translateX(0px) translateY(0px) translateZ(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4 .p4content ul li:nth-child(4){
+    transform: translateX(0px) translateY(0px) translateZ(-100px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1.1) scaleY(1.1) scaleZ(1.1);
+}
+.p4 .p4content ul li:nth-child(5){
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1.2) scaleY(1.2) scaleZ(1.2);
+}
+.p4 .p4content ul li:nth-child(1) img{
+    animation:p4LiMove 60s infinite linear ;
+}
+.p4 .p4content ul li:nth-child(2) img{
+    animation:p4LiMove 20s infinite linear ;
+}
+.p4 .p4content ul li:nth-child(3) img{
+    animation:p4LiMove 10s infinite linear ;
+}
+.p4 .p4content ul li:nth-child(4) img{
+    animation:p4LiMove 5s infinite linear ;
+}
+.p4 .p4content ul li:nth-child(5) img{
+    animation:p4LiMove 3s infinite linear ;
+}
+@keyframes p4LiMove {
+    0%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+    100%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(360deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+}
+.p4-line{
+    width: 100%;
+    height: 200px;
+    position:absolute;
+    left: 0;
+    top: 60%;
+    border-bottom: 1px solid white;
+    border-top: 1px solid white;
+}
+.p4-line>img:nth-of-type(1){
+    position:absolute;
+    left: 0;
+    top: -63px;
+}
+.p4-line>img:nth-of-type(2){
+    position:absolute;
+    left: 0;
+    bottom: -61px;
+}
+.p4-line>img:nth-of-type(1){
+    animation: p4ImgMove 1s infinite linear;
+}
+.p4-line>img:nth-of-type(2){
+    animation: p4ImgMove 1.5s infinite linear;
+}
+@keyframes p4ImgMove {
+   0%{
+       transform: translateX(-2000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+   }
+    100%{
+        transform: translateX(2000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+}
+.p4-title1{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 250px;
+    height: 29px;
+    margin-left: -430px;
+    margin-top: -38px;
+}
+.p4-title1 p{
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+.p4-title2{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 300px;
+    height: 71px;
+    margin-left: 132px;
+    margin-top: -94px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(30deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4.current .p4content{
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(30deg) rotateY(0deg) rotateZ(0deg) scaleX(5) scaleY(5) scaleZ(5);
+}
+.p4.current .p4-title2{
+    transform: translateX(-2000px) translateY(0px) translateZ(0px) rotateX(30deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4.current .p4-title1{
+    transform: translateX(2000px) translateY(0px) translateZ(0px) rotateX(30deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p4content,.p4-title2,.p4-title1{
+    transition: all 1s linear;
+}
+
+/*********************第五页内容***************************/
+section.p5{
+    background: url(../images/page5_glow.png) no-repeat center -300px,linear-gradient(0deg, #d74d53 0%, #c44655 35%, #4c184c 75%, #110145 100%);
+}
+.p5content ul{
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -350px;
+    margin-top: -250px;
+}
+.p5content ul li{
+    width: 305px;
+    height: 305px;
+    position: absolute;
+    background: url("../images/page5_bubble.png") no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.7s linear;
+}
+.p5content ul li>img{
+    animation: p5Imgmove 5s infinite linear;
+}
+@keyframes p5Imgmove {
+    0%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+    100%{
+        transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(360deg) scaleX(1) scaleY(1) scaleZ(1);
+    }
+}
+.p5content ul li:nth-child(1){
+    left: 150px;
+    top: 100px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p5content ul li:nth-child(2){
+    left: 401px;
+    top: -100px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.8) scaleY(0.8) scaleZ(0.8);
+}
+.p5content ul li:nth-child(3){
+    left: 301px;
+    top: 300px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.8) scaleY(0.8) scaleZ(0.8);
+}.p5content ul li:nth-child(4){
+     left: 1px;
+     top: -41px;
+     transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.7) scaleY(0.7) scaleZ(0.7);
+ }
+.p5content ul li:nth-child(5){
+      left: -99px;
+      top: 300px;
+      transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.6) scaleY(0.6) scaleZ(0.6);
+  }
+.p5content ul li:nth-child(6){
+    left: 502px;
+    top: 150px;
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.8) scaleY(0.8) scaleZ(0.8);
+}
+.p5.current .p5content ul li:nth-child(1){
+    transform: translateX(0px) translateY(-1000px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p5.current .p5content ul li:nth-child(2){
+    transform: translateX(1000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.7) scaleY(0.7) scaleZ(0.7);
+}
+.p5.current .p5content ul li:nth-child(3){
+    transform: translateX(1500px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.5) scaleY(0.5) scaleZ(0.5);
+}
+.p5.current .p5content ul li:nth-child(4){
+    transform: translateX(-1000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.6) scaleY(0.6) scaleZ(0.6);
+}
+.p5.current .p5content ul li:nth-child(5){
+    transform: translateX(-1500px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.4) scaleY(0.4) scaleZ(0.4);
+}
+.p5.current .p5content ul li:nth-child(6){
+    transform: translateX(2000px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scaleX(0.8) scaleY(0.8) scaleZ(0.8);
+}
+.p5-title1{
+    width: 410px;
+    height: 121px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -672px;
+    margin-top: -29px;
+    transition: all 0.7s linear;
+}
+.p5.current .p5-title1,.p5.current .p5-text{
+    transform: translateX(0px) translateY(0px) translateZ(0px) rotateX(0deg) rotateY(90deg) rotateZ(0deg) scaleX(1) scaleY(1) scaleZ(1);
+}
+.p5-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-left: 330px;
+    margin-top: -150px;
+    transition: all 0.7s linear;
+}
+/**************小logo****************/
+.logo{
+    width: 300px;
+    height: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+      display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo img{
+    margin-top: -15px;
+    margin-left: 30px;
+    width: 104px;
+    height: 21px;
+}
+.logo a{
+    margin-top: -15px;
+    margin-left: 30px;
+    text-decoration: none;
+    color: white;
+    padding:10px 15px;
+    border-radius: 24px;
+    border: 1px solid #666;
+}
+/****************大logo*******************/
+.bigLogo{
+    width: 1000px;
+    height: 300px;
+    position: absolute;
+    left: 50%;
+    margin-left: -500px;
+    top: -50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    
+}
+.bigLogo a{
+    margin-top: 10px;
+    margin-left: -200px;
+    text-decoration: none;
+    color: white;
+    padding:15px 25px;
+    border-radius: 24px;
+    border: 1px solid #666;
+}
+.bigLogo img{
+    width: 50%;
+}
+
+/*****************右边小圆点******************/
+.round{
+    width: 100px;
+    height: 150px;
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.round li{
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    background-color:rgba(255,255,255,0.3);
+    border-radius: 50%;
+}
+.round li.active{
+    background-color:rgba(255,255,255,1);
+}
+/**************底部*****************/
+.footer{
+    width: 100%;
+    height: 60px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer,.footer li a{
+    font-size: 18px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+.footer .list{
+   display: flex;
+}
+.footer>span{
+    margin-left: 20px;
+}
+.footer li a{
+    margin-right: 30px;
+}
+.footer li a span{
+    margin-left: 26px;
+}
+/**************滚动指示器**************/
+.scroll{
+    width: 29px;
+    height: 31px;
+    position: fixed;
+    left: 50%;
+    margin-left: -15px;
+    bottom: 20px;
+    animation: upAndDown 1s infinite alternate;
+}
+@keyframes upAndDown {
+    0%{
+      transform: translateY(10px);
+    }
+    100%{
+      transform: translateY(0px);
+    }
+}
+
+
+
